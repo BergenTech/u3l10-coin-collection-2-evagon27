@@ -106,16 +106,12 @@ function moveObstacle() {
 }
 
 function checkCoinCollection() {
-  // TODO: Check if player touches coin
+  //Check if player touches coin
   if(dist(playerX, playerY, coinX, coinY) < 15){
     score++
-
+    drawCoin()
+    obstacleSpeed += 0.5
   }
-  // HINT: Use dist(playerX, playerY, coinX, coinY)
-  // If distance < 15:
-  //   - Increase score
-  //   - Create new coin
-  //   - Increase obstacle speed slightly
 }
 
 function checkCollisions() {
