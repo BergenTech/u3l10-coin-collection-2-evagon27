@@ -91,9 +91,9 @@ function movePlayer() {
 }
 
 function moveObstacle() {
-  //Move obstacle from left to right
+  //Move obstacle from top to bottom
   // HINT: Increase obstacleX by obstacleSpeed
-  obstacleX += obstacleSpeed
+  obstacleY += obstacleSpeed
 
   
   // TODO: Reset obstacle when it goes off screen
@@ -107,7 +107,10 @@ function moveObstacle() {
 
 function checkCoinCollection() {
   // TODO: Check if player touches coin
-  if(dist(playerX, playerY, coinX, coinY) < 15)
+  if(dist(playerX, playerY, coinX, coinY) < 15){
+    score++
+
+  }
   // HINT: Use dist(playerX, playerY, coinX, coinY)
   // If distance < 15:
   //   - Increase score
