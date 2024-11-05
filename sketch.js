@@ -135,10 +135,10 @@ function checkCollisions() {
 function displayStats() {
   fill(0);
   textSize(16);
-  text("Score: " + score, 10, 20);
+  text("Score: " + score, 50, 20);
   //Display for hits and speed
-  text(`Hits: ${hits}`, 10, 40)
-  text(`Speed: ${obstacleSpeed}`, 10, 60)
+  text(`Hits: ${hits}`, 150, 20)
+  text(`Speed: ${obstacleSpeed}`, 225, 20)
 }
 
 function displayGameOver() {
@@ -148,8 +148,8 @@ function displayGameOver() {
   textSize(50)
   text("Game Over", width/2, height/2 - 40)
   textSize(20)
-  text(`Final Score: ${score}`, width/2, height/2 + 40)
-  text("Press R to Restart", width/2, height/2 + 80)
+  text(`Final Score: ${score}`, width/2, height/2 + 5)
+  text("Press R to Restart", width/2, height/2 + 35)
 }
 
 function newCoin() {
@@ -162,7 +162,7 @@ function resetGame() {
   //Reset all game variables
   score = 0
   hits = 0
-  speed = 0
+  obstacleSpeed = 5
   gameOver = false
   initializeGame()
   // HINT: Reset score, hits, speed
