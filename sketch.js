@@ -4,7 +4,7 @@ let coinX, coinY;
 let obstacleX, obstacleY;
 let score = 0;
 let gameOver = false;
-let obstacleSpeed = 0;
+let obstacleSpeed = 5;
 let hits = 0;
 
 function setup() {
@@ -21,8 +21,8 @@ function initializeGame() {
   newCoin();
   
   // Initialize obstacle position
-  obstacleX = 0;
-  obstacleY = random(20, height-20);
+  obstacleX = random(20, height-20);
+  obstacleY = 0;
 }
 
 function draw() {
@@ -100,9 +100,10 @@ function moveObstacle() {
   // TODO: Reset obstacle when it goes off screen
   // HINT: Check if obstacleX > width
   // Reset to left side and new random Y position
-  if(obstacleX > width){
-    obstacleX = 0
-    obstacleY = random(20, height - 20)
+  if(obstacleY > width){
+    obstacleX = random(20, height - 20)
+    obstacleY = 0
+    obstacleSpeed += 0.5
   }
 }
 
@@ -136,7 +137,7 @@ function displayStats() {
   text("Score: " + score, 10, 20);
   //Display for hits and speed
   text(`Hits: ${hits}`, 10, 40)
-  text(`Speed: ${speed}`, 10, 60)
+  text(`Speed: ${obstacleSpeed}`, 10, 60)
 }
 
 function displayGameOver() {
@@ -168,11 +169,9 @@ function resetGame() {
 
 function keyPressed() {
   // TODO: Check for 'R' key to restart game
-  if(key === "r" || key === "R" & gameOver == true){
+  if((key === "r" & gameOver == true) || (key === "R" & gameOver == true)){
     resetGame()
   }
-  // HINT: Use key === 'r' || key === 'R'
-  // Only works when game is over
 }
 
 // Helper function you might need
