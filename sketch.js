@@ -122,7 +122,8 @@ function checkCollisions() {
   if(dist(playerX, playerY, obstacleX, obstacleY) < 20){
     hits++
     if(hits >= 3){
-      gameOver()
+      gameOver = true
+      displayGameOver()
     }
     newCoin()
     drawObstacle()
@@ -141,12 +142,14 @@ function displayStats() {
 }
 
 function displayGameOver() {
-  // TODO: Show game over screen
-  // HINT: Use textAlign(CENTER, CENTER)
-  // Show:
-  //   - "Game Over" message
-  //   - Final score
-  //   - "Press R to Restart"
+  //Show game over screen
+  // HINT: Use textAlign(CENTER, CENTER
+  textAlign(CENTER, CENTER)
+  textSize(50)
+  text("Game Over", width/2, height/2 - 40)
+  textSize(20)
+  text(`Final Score: ${score}`, width/2, height/2 + 40)
+  text("Press R to Restart", width/2, height/2 + 80)
 }
 
 function newCoin() {
