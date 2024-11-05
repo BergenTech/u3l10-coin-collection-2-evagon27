@@ -155,7 +155,12 @@ function newCoin() {
 }
 
 function resetGame() {
-  // TODO: Reset all game variables
+  //Reset all game variables
+  score = 0
+  hits = 0
+  speed = 0
+  gameOver = false
+  initializeGame()
   // HINT: Reset score, hits, speed
   // Set gameOver to false
   // Call initializeGame()
@@ -163,6 +168,9 @@ function resetGame() {
 
 function keyPressed() {
   // TODO: Check for 'R' key to restart game
+  if(key === "r" || key === "R" & gameOver == true){
+    resetGame()
+  }
   // HINT: Use key === 'r' || key === 'R'
   // Only works when game is over
 }
