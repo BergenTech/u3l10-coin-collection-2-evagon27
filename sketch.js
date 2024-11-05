@@ -4,6 +4,7 @@ let coinX, coinY;
 let obstacleX, obstacleY;
 let score = 0;
 let gameOver = false;
+let obstacleSpeed = 0;
 
 function setup() {
   createCanvas(400, 400);
@@ -83,22 +84,30 @@ function movePlayer() {
   // TODO: Add boundary checking
   // HINT: Keep player within canvas bounds
   // Check against 0, width, and height
-  if(playerX < 0 || playerX < width || playerY < height || playerY < 0){
-    playerX = random()
+  if(playerX < 0 || playerX > width || playerY > height || playerY < 0){
+    playerX = width/2;
+    playerY = height - 20;
   }
 }
 
 function moveObstacle() {
-  // TODO: Move obstacle from left to right
+  //Move obstacle from left to right
   // HINT: Increase obstacleX by obstacleSpeed
+  obstacleX += obstacleSpeed
+
   
   // TODO: Reset obstacle when it goes off screen
   // HINT: Check if obstacleX > width
   // Reset to left side and new random Y position
+  if(obstacleX > width){
+    obstacleX = 0
+    obstacleY = random(20, height - 20)
+  }
 }
 
 function checkCoinCollection() {
   // TODO: Check if player touches coin
+  if(dist(playerX, playerY, coinX, coinY) < 15)
   // HINT: Use dist(playerX, playerY, coinX, coinY)
   // If distance < 15:
   //   - Increase score
